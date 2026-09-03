@@ -1,9 +1,7 @@
-import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '../components/Icon'
 import { Pill } from '../components/Pill'
 import { VideoPlate } from '../components/VideoPlate'
-import { clamp01, useScrollProgress } from '../components/useScrollProgress'
 import { CallBox, Paths, Rise, ServicesGrid, Steps, TrustStrip, Values } from '../components/blocks'
 import { PropertyCard } from '../components/PropertyCard'
 import { media } from '../data/media'
@@ -18,54 +16,52 @@ const facts = [
 ]
 
 export function Home() {
-  const track = useRef<HTMLElement>(null)
-  const p = useScrollProgress(track)
-  const copyO = 1 - clamp01(p * 2.6)
-  const factsO = clamp01((p - 0.38) * 3.2)
   const featured = properties.filter((x) => x.image).slice(0, 3)
 
   return (
     <>
-      {/* Pinned cinematic opener: the plate stays, the copy gives way to four facts. */}
-      <section className="cine" ref={track} aria-labelledby="hero-h">
-        <div className="cine-sticky">
-          <VideoPlate src={media.hero.video} poster={media.hero.poster} position="60% 50%" />
-          <div className="cine-copy wrap" style={{ opacity: copyO, transform: `translateY(${-p * 90}px)`, pointerEvents: copyO < 0.2 ? 'none' : 'auto' }}>
-            <Rise delay={0.05}>
-              <span className="kicker">501(c)(3) nonprofit, founded by veterans</span>
-              <h1 id="hero-h">Affordable housing and support for veterans and seniors.</h1>
-            </Rise>
-            <Rise delay={0.14}>
-              <p className="lead">Safe, affordable homes, behavioral health counseling, and the practical help that makes a new home last. Seven communities in Washington, expanding into Alabama.</p>
-            </Rise>
-            <Rise delay={0.22}>
-              <div className="ctas">
-                <Pill to="/help" large>I need housing or support</Pill>
-                <Pill to="/housing" variant="ghost" large>See our communities</Pill>
-              </div>
-              <ul className="proof">
-                <li><Icon name="check" strokeWidth={2.5} />Founded by veterans in {site.founded}</li>
-                <li><Icon name="check" strokeWidth={2.5} />Family and senior 55+ communities</li>
-                <li><Icon name="check" strokeWidth={2.5} />Individualized care</li>
-              </ul>
-            </Rise>
-          </div>
-          <div className="cine-facts wrap" style={{ opacity: factsO, pointerEvents: factsO < 0.2 ? 'none' : 'auto' }} aria-hidden={factsO < 0.2}>
-            {facts.map((f, i) => (
-              <div className={`fact f${i + 1}`} key={f.k}>
+      <section className="hero" aria-labelledby="hero-h">
+        <VideoPlate src={media.hero.video} poster={media.hero.poster} speed={0.45} position="55% 50%" />
+        <div className="wrap hero-copy">
+          <Rise delay={0.05}>
+            <span className="kicker">501(c)(3) nonprofit, founded by veterans</span>
+            <h1 id="hero-h">Affordable housing and support for veterans and seniors.</h1>
+          </Rise>
+          <Rise delay={0.14}>
+            <p className="lead">Safe, affordable homes, behavioral health counseling, and the practical help that makes a new home last. Seven communities in Washington, expanding into Alabama.</p>
+          </Rise>
+          <Rise delay={0.22}>
+            <div className="ctas">
+              <Pill to="/help" large>I need housing or support</Pill>
+              <Pill to="/housing" variant="ghost" large>See our communities</Pill>
+            </div>
+            <ul className="proof">
+              <li><Icon name="check" strokeWidth={2.5} />Founded by veterans in {site.founded}</li>
+              <li><Icon name="check" strokeWidth={2.5} />Family and senior 55+ communities</li>
+              <li><Icon name="check" strokeWidth={2.5} />Individualized care</li>
+            </ul>
+          </Rise>
+        </div>
+      </section>
+
+      <section className="facts-strip" aria-label="Veterans Village in brief">
+        <div className="wrap">
+          <h2>Housing first. Support that lasts.</h2>
+          <ul>
+            {facts.map((f) => (
+              <li key={f.k}>
                 <b>{f.k}</b>
                 <span>{f.t}</span>
-              </div>
+              </li>
             ))}
-            <h2 className="fact-h">Housing first.<br />Support that lasts.</h2>
-          </div>
+          </ul>
         </div>
       </section>
 
       <Paths />
 
       <section className="band-plate">
-        <VideoPlate src={media.numbers.video} poster={media.numbers.poster} fade={false} />
+        <VideoPlate src={media.numbers.video} poster={media.numbers.poster} fade={false} speed={0.35} />
         <TrustStrip />
       </section>
 
@@ -117,7 +113,7 @@ export function Home() {
       </section>
 
       <section className="quote-plate">
-        <VideoPlate src={media.quote.video} poster={media.quote.poster} fade={false} position="50% 40%" />
+        <VideoPlate src={media.quote.video} poster={media.quote.poster} fade={false} speed={0.35} position="50% 40%" />
         <div className="wrap">
           <span className="kicker">Our mission</span>
           <blockquote>

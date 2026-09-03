@@ -28,7 +28,7 @@ export function About() {
               Lake Stevens, with a first Alabama property under contract in Pell City.
             </p>
           </div>
-          <img src="/images/marine-view.jpg" alt="Vintage at Marine View senior community in Everett, Washington" width={800} height={600} loading="lazy" />
+          <img src="/images/plate-marine-view-entrance.jpg" alt="Vintage at Marine View senior community in Everett, Washington" width={800} height={600} loading="lazy" />
         </div>
       </section>
       <section className="impact">

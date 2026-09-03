@@ -31,7 +31,7 @@ export const properties: Property[] = [
     features: ['1 to 3 bedrooms', 'In-unit laundry', 'Fitness center'],
     phone: '(206) 237-8199',
     site: 'https://www.quinnbyvintage.com/',
-    image: '/images/quinn.png',
+    image: '/images/quinn.jpg',
   },
   {
     slug: 'silver-creek',

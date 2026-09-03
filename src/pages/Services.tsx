@@ -30,7 +30,7 @@ export function Services() {
               members of the veteran and senior communities we serve.
             </p>
           </div>
-          <img src="/images/silverdale.jpg" alt="Vintage at Silverdale senior community" width={800} height={600} loading="lazy" />
+          <img src="/images/plate-two10-living.jpg" alt="A furnished living room at Two10 by Vintage in Shoreline" width={800} height={600} loading="lazy" />
         </div>
       </section>
     </>
