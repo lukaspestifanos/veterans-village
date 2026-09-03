@@ -334,7 +334,7 @@ form.req .two { display: grid; gap: 16px; }
 form.req label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: .95rem; color: var(--ink); }
 form.req label span.opt { font-weight: 400; color: var(--stone); }
 form.req input, form.req select, form.req textarea { width: 100%; min-height: 52px; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--paper); color: var(--ink); font-size: 1rem; font-weight: 400; -webkit-appearance: none; appearance: none; }
-form.req select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23101820' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 42px; }
+form.req select.native { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23101820' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; padding-right: 42px; }
 form.req textarea { min-height: 140px; resize: vertical; }
 form.req input:focus, form.req select:focus, form.req textarea:focus { border-color: var(--ink); outline: 3px solid rgba(29, 95, 209, .2); outline-offset: 0; background: #fff; }
 form.req .foot { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin-top: 4px; }
@@ -365,3 +365,28 @@ footer .legal { margin-top: 56px; padding-top: 20px; border-top: 1px solid rgba(
 .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(247, 244, 238, .96); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-top: 1px solid var(--line); }
 body { padding-bottom: 84px; }
 @media (min-width: 1100px) { .mbar { display: none; } body { padding-bottom: 0; } }
+
+/* field wrapper for non-native controls */
+form.req .field { display: flex; flex-direction: column; gap: 6px; }
+form.req .field-label { font-weight: 600; font-size: .95rem; color: var(--ink); }
+
+/* menu: a real menu, not a native select (same idiom as the Triptych hub) */
+.menu { position: relative; display: block; }
+.mbtn { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 52px; font: inherit; font-size: 1rem; font-weight: 500; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; text-align: left; transition: border-color .15s, background .15s; }
+.mbtn:hover, .menu.open .mbtn { border-color: var(--ink); background: #fff; }
+.mbtn .mshown { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mbtn .chev { opacity: .5; flex: none; width: 12px; height: 8px; transition: transform .15s; }
+.menu.open .mbtn .chev { transform: rotate(180deg); }
+.mpop { position: absolute; top: calc(100% + 6px); left: 0; z-index: 60; min-width: 100%; max-width: min(360px, 92vw); background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 34px rgba(16, 24, 32, .16), 0 2px 6px rgba(16, 24, 32, .08); padding: 6px; animation: mpop .13s ease-out; }
+@keyframes mpop { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.mlist { max-height: min(58vh, 420px); overflow-y: auto; overscroll-behavior: contain; }
+.mhead { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brass-deep); padding: 12px 10px 5px; }
+.mrow { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 10px; border-radius: 9px; border: 0; background: none; text-align: left; color: var(--ink); font: inherit; font-size: .95rem; line-height: 1.25; cursor: pointer; }
+.mrow:hover, .mrow:focus-visible { background: var(--paper-2); outline: none; }
+.mrow .tick { flex: none; width: 13px; height: 13px; color: var(--brass-deep); display: inline-block; }
+.mrow.sel { font-weight: 700; }
+.mlab { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mlab em { display: block; font-style: normal; font-weight: 400; font-size: .82rem; color: var(--stone); margin-top: 1px; }
+.mfind { width: 100%; font: inherit; font-size: .95rem; color: var(--ink); background: var(--paper-2); border: 0; border-radius: 9px; padding: 9px 12px; margin-bottom: 4px; }
+.mfind:focus { outline: 2px solid var(--focus); outline-offset: -1px; }
+@media (prefers-reduced-motion: reduce) { .mpop { animation: none; } }

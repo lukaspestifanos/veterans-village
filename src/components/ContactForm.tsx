@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Menu } from './Menu'
 import { Pill } from './Pill'
 import { properties } from '../data/properties'
 import { site } from '../data/site'
@@ -95,27 +96,26 @@ export function ContactForm() {
         <input type="email" name="email" required autoComplete="email" />
       </label>
       <div className="two">
-        <label>
-          I'm reaching out about
-          <select name="topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
-            {TOPICS.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Community <span className="opt">(if known)</span>
-          <select name="community" value={community} onChange={(e) => setCommunity(e.target.value)}>
-            <option value="">Not sure yet</option>
-            {properties.map((p) => (
-              <option key={p.slug} value={p.name}>
-                {p.name}
-              </option>
-            ))}
-          </select>
-        </label>
+        <div className="field">
+          <span className="field-label">I'm reaching out about</span>
+          <Menu name="topic" label="I'm reaching out about" value={topic} onChange={setTopic} groups={[{ items: TOPICS }]} />
+        </div>
+        <div className="field">
+          <span className="field-label">Community <span className="opt">(if known)</span></span>
+          <Menu
+            name="community"
+            label="Community"
+            value={community}
+            onChange={setCommunity}
+            placeholder="Not sure yet"
+            groups={[
+              { items: [{ value: '', label: 'Not sure yet' }] },
+              { head: 'Family apartments', items: properties.filter((p) => p.type === 'family').map((p) => ({ value: p.name, label: p.name, hint: p.city })) },
+              { head: 'Senior 55+', items: properties.filter((p) => p.type === 'senior').map((p) => ({ value: p.name, label: p.name, hint: p.city })) },
+              { head: 'Coming soon', items: properties.filter((p) => p.type === 'soon').map((p) => ({ value: p.name, label: p.name, hint: p.city })) },
+            ]}
+          />
+        </div>
       </div>
       <label>
         Message
