@@ -29,16 +29,34 @@ export function Scrolly({ chapter, heading, steps, flip }: Props) {
   useEffect(() => {
     const els = refs.current.filter(Boolean) as HTMLLIElement[]
     if (!els.length || typeof IntersectionObserver === 'undefined') return
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset.i))
-        })
-      },
-      { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
-    )
-    els.forEach((el) => io.observe(el))
-    return () => io.disconnect()
+    let io: IntersectionObserver | null = null
+    const connect = () => {
+      io?.disconnect()
+      // On phones the picture is pinned across the top, so the "reading line"
+      // sits in the lower part of the screen; on wide screens it is the centre.
+      const narrow = window.matchMedia('(max-width: 899px)').matches
+      io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset.i))
+          })
+        },
+        { rootMargin: narrow ? '-62% 0px -18% 0px' : '-45% 0px -45% 0px', threshold: 0 },
+      )
+      els.forEach((el) => io!.observe(el))
+    }
+    connect()
+    let t = 0
+    const onResize = () => {
+      window.clearTimeout(t)
+      t = window.setTimeout(connect, 150)
+    }
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('resize', onResize)
+      window.clearTimeout(t)
+      io?.disconnect()
+    }
   }, [steps.length])
 
   return (
