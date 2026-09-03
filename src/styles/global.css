@@ -371,22 +371,22 @@ form.req .field { display: flex; flex-direction: column; gap: 6px; }
 form.req .field-label { font-weight: 600; font-size: .95rem; color: var(--ink); }
 
 /* menu: a real menu, not a native select (same idiom as the Triptych hub) */
-.menu { position: relative; display: block; }
-.mbtn { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 52px; font: inherit; font-size: 1rem; font-weight: 500; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; text-align: left; transition: border-color .15s, background .15s; }
-.mbtn:hover, .menu.open .mbtn { border-color: var(--ink); background: #fff; }
-.mbtn .mshown { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.mbtn .chev { opacity: .5; flex: none; width: 12px; height: 8px; transition: transform .15s; }
-.menu.open .mbtn .chev { transform: rotate(180deg); }
-.mpop { position: absolute; top: calc(100% + 6px); left: 0; z-index: 60; min-width: 100%; max-width: min(360px, 92vw); background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 34px rgba(16, 24, 32, .16), 0 2px 6px rgba(16, 24, 32, .08); padding: 6px; animation: mpop .13s ease-out; }
-@keyframes mpop { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
-.mlist { max-height: min(58vh, 420px); overflow-y: auto; overscroll-behavior: contain; }
-.mhead { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brass-deep); padding: 12px 10px 5px; }
-.mrow { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 10px; border-radius: 9px; border: 0; background: none; text-align: left; color: var(--ink); font: inherit; font-size: .95rem; line-height: 1.25; cursor: pointer; }
-.mrow:hover, .mrow:focus-visible { background: var(--paper-2); outline: none; }
-.mrow .tick { flex: none; width: 13px; height: 13px; color: var(--brass-deep); display: inline-block; }
-.mrow.sel { font-weight: 700; }
-.mlab { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.mlab em { display: block; font-style: normal; font-weight: 400; font-size: .82rem; color: var(--stone); margin-top: 1px; }
-.mfind { width: 100%; font: inherit; font-size: .95rem; color: var(--ink); background: var(--paper-2); border: 0; border-radius: 9px; padding: 9px 12px; margin-bottom: 4px; }
-.mfind:focus { outline: 2px solid var(--focus); outline-offset: -1px; }
-@media (prefers-reduced-motion: reduce) { .mpop { animation: none; } }
+.dd { position: relative; display: block; }
+.ddbtn { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 52px; font: inherit; font-size: 1rem; font-weight: 500; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; text-align: left; transition: border-color .15s, background .15s; }
+.ddbtn:hover, .dd.open .ddbtn { border-color: var(--ink); background: #fff; }
+.ddbtn .ddshown { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ddbtn .chev { opacity: .5; flex: none; width: 12px; height: 8px; transition: transform .15s; }
+.dd.open .ddbtn .chev { transform: rotate(180deg); }
+.ddpop { position: absolute; top: calc(100% + 6px); left: 0; z-index: 60; min-width: 100%; max-width: min(360px, 92vw); background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 34px rgba(16, 24, 32, .16), 0 2px 6px rgba(16, 24, 32, .08); padding: 6px; animation: ddpop .13s ease-out; }
+@keyframes ddpop { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.ddlist { max-height: min(58vh, 420px); overflow-y: auto; overscroll-behavior: contain; }
+.ddhead { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brass-deep); padding: 12px 10px 5px; }
+.ddrow { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 10px; border-radius: 9px; border: 0; background: none; text-align: left; color: var(--ink); font: inherit; font-size: .95rem; line-height: 1.25; cursor: pointer; }
+.ddrow:hover, .ddrow:focus-visible { background: var(--paper-2); outline: none; }
+.ddrow .tick { flex: none; width: 13px; height: 13px; color: var(--brass-deep); display: inline-block; }
+.ddrow.sel { font-weight: 700; }
+.ddlab { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ddlab em { display: block; font-style: normal; font-weight: 400; font-size: .82rem; color: var(--stone); margin-top: 1px; }
+.ddfind { width: 100%; font: inherit; font-size: .95rem; color: var(--ink); background: var(--paper-2); border: 0; border-radius: 9px; padding: 9px 12px; margin-bottom: 4px; }
+.ddfind:focus { outline: 2px solid var(--focus); outline-offset: -1px; }
+@media (prefers-reduced-motion: reduce) { .ddpop { animation: none; } }

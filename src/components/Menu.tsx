@@ -58,9 +58,9 @@ export function Menu({ name, value, onChange, groups, placeholder = 'Choose', se
       pop.current.style.left = 'auto'
       pop.current.style.right = '0'
     }
-    const sel = pop.current?.querySelector<HTMLElement>('.mrow.sel')
+    const sel = pop.current?.querySelector<HTMLElement>('.ddrow.sel')
     sel?.scrollIntoView({ block: 'nearest' })
-    if (search) pop.current?.querySelector<HTMLInputElement>('.mfind')?.focus()
+    if (search) pop.current?.querySelector<HTMLInputElement>('.ddfind')?.focus()
     else sel?.focus()
     return () => document.removeEventListener('mousedown', onDoc)
   }, [open, search])
@@ -69,14 +69,14 @@ export function Menu({ name, value, onChange, groups, placeholder = 'Choose', se
     onChange(v)
     setOpen(false)
     setQ('')
-    root.current?.querySelector<HTMLButtonElement>('.mbtn')?.focus()
+    root.current?.querySelector<HTMLButtonElement>('.ddbtn')?.focus()
   }
 
   const onKey = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       e.preventDefault()
       setOpen(false)
-      root.current?.querySelector<HTMLButtonElement>('.mbtn')?.focus()
+      root.current?.querySelector<HTMLButtonElement>('.ddbtn')?.focus()
       return
     }
     if (!open && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter' || e.key === ' ')) {
@@ -86,7 +86,7 @@ export function Menu({ name, value, onChange, groups, placeholder = 'Choose', se
     }
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault()
-      const rows = Array.from(pop.current?.querySelectorAll<HTMLElement>('.mrow') ?? [])
+      const rows = Array.from(pop.current?.querySelectorAll<HTMLElement>('.ddrow') ?? [])
       if (!rows.length) return
       const i = rows.indexOf(document.activeElement as HTMLElement)
       let j = i < 0 ? (e.key === 'ArrowDown' ? 0 : rows.length - 1) : i + (e.key === 'ArrowDown' ? 1 : -1)
@@ -97,48 +97,48 @@ export function Menu({ name, value, onChange, groups, placeholder = 'Choose', se
   }
 
   return (
-    <div className={`menu${open ? ' open' : ''}`} ref={root} onKeyDown={onKey}>
+    <div className={`dd${open ? ' open' : ''}`} ref={root} onKeyDown={onKey}>
       <input type="hidden" name={name} value={value} />
       <button
         type="button"
         id={btnId}
-        className="mbtn"
+        className="ddbtn"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
         aria-label={label}
         onClick={() => setOpen((v) => !v)}
       >
-        <span className="mshown">{shown}</span>
+        <span className="ddshown">{shown}</span>
         <svg className="chev" viewBox="0 0 10 6" width="9" height="6" aria-hidden="true">
           <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
       {open && (
-        <div className="mpop" ref={pop} role="listbox" id={listId} aria-labelledby={btnId}>
+        <div className="ddpop" ref={pop} role="listbox" id={listId} aria-labelledby={btnId}>
           {search && (
-            <input className="mfind" type="text" placeholder="Search" value={q} onChange={(e) => setQ(e.target.value)} aria-label={`Search ${placeholder}`} />
+            <input className="ddfind" type="text" placeholder="Search" value={q} onChange={(e) => setQ(e.target.value)} aria-label={`Search ${placeholder}`} />
           )}
-          <div className="mlist">
+          <div className="ddlist">
             {groups.map((g, gi) => {
               const items = g.items.filter(match)
               if (!items.length) return null
               return (
                 <div key={gi}>
-                  {g.head && <div className="mhead">{g.head}</div>}
+                  {g.head && <div className="ddhead">{g.head}</div>}
                   {items.map((o) => {
                     const sel = o.value === value
                     return (
                       <button
                         type="button"
                         key={o.value}
-                        className={`mrow${sel ? ' sel' : ''}`}
+                        className={`ddrow${sel ? ' sel' : ''}`}
                         role="option"
                         aria-selected={sel}
                         onClick={() => choose(o.value)}
                       >
                         {sel ? <Tick /> : <i className="tick" />}
-                        <span className="mlab">
+                        <span className="ddlab">
                           {o.label}
                           {o.hint && <em>{o.hint}</em>}
                         </span>
