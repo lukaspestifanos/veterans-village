@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Icon, Mark } from './Icon'
 import { Pill } from './Pill'
-import { VideoPlate } from './VideoPlate'
-import { media } from '../data/media'
 import { site } from '../data/site'
 
-/** One plate spans the closing call to action and the footer, with no line between them. */
 export function Footer() {
   return (
-    <footer className="outro">
-      <VideoPlate src={media.outro.video} poster={media.outro.poster} fade={false} position="50% 60%" />
-      <div className="wrap outro-cta">
+    <footer className="site">
+      <div className="wrap foot-cta">
         <h2>Need a home, or want to partner? Let's talk.</h2>
         <div className="ctas">
           <Pill to="/contact?topic=housing" large>Get help</Pill>
@@ -64,7 +60,7 @@ export function Footer() {
 export function MobileBar() {
   return (
     <div className="mbar" aria-label="Quick actions">
-      <a className="btn btn-ghost" href={site.phoneHref}>
+      <a className="btn btn-outline" href={site.phoneHref}>
         <Icon name="phone" />
         Call us
       </a>

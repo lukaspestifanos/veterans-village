@@ -62,7 +62,7 @@ export function Partners() {
               </div>
             ))}
           </div>
-          <span className="kicker" style={{ marginTop: 48 }}>What we stand for</span>
+          <p className="eyebrow" style={{ marginTop: 48 }}>What we stand for</p>
           <h2>Our values</h2>
           <Values />
           <div className="pcol contact-strip">

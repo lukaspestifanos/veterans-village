@@ -22,7 +22,17 @@ export function UtilityBar() {
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+
+  // Over the home photograph the bar starts transparent and turns to paper once the page moves.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  const overPhoto = location.pathname === '/' || ['/help', '/housing', '/services', '/about', '/partners', '/contact'].includes(location.pathname)
 
   // Close the menu on navigation, on Escape, and when the window turns wide.
   useEffect(() => setOpen(false), [location.pathname, location.search])
@@ -41,7 +51,7 @@ export function Header() {
   }, [open])
 
   return (
-    <header className={`site${open ? ' is-open' : ''}`}>
+    <header className={`site${open ? ' is-open' : ''}${overPhoto && !scrolled && !open ? ' over' : ''}`}>
       <div className="wrap bar">
         <Link className="logo" to="/" aria-label="Veterans Village home">
           <Mark className="mark" />

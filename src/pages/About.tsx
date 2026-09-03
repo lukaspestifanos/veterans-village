@@ -16,7 +16,7 @@ export function About() {
       <section className="about">
         <div className="wrap top">
           <div>
-            <span className="kicker">Our story</span>
+            <p className="eyebrow">Our story</p>
             <h2>A 501(c)(3) nonprofit, rooted in Washington, growing into Alabama.</h2>
             <p>
               We are dedicated to making a positive difference in the lives of veterans and their families. We partner
@@ -34,7 +34,7 @@ export function About() {
       <section className="impact">
         <div className="wrap two-col">
           <div>
-            <span className="kicker">Our mission</span>
+            <p className="eyebrow">Our mission</p>
             <h2>Supported and respected, from the first day in a new home.</h2>
             <blockquote>
               "{site.mission}"<cite>Veterans Village mission statement</cite>
@@ -45,7 +45,7 @@ export function About() {
       </section>
       <section className="board-sec" id="board">
         <div className="wrap">
-          <span className="kicker">Leadership</span>
+          <p className="eyebrow">Leadership</p>
           <h2>Board of Directors</h2>
           <p className="lead">Veteran-led and community-rooted. The board brings decades of military, healthcare, finance, and real estate experience to every decision.</p>
           <BoardGrid />

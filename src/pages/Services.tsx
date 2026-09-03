@@ -18,7 +18,7 @@ export function Services() {
       <section className="about">
         <div className="wrap top">
           <div>
-            <span className="kicker">Our approach</span>
+            <p className="eyebrow">Our approach</p>
             <h2>Care that respects every veteran.</h2>
             <p>
               We are committed to providing veterans and senior citizens with the highest quality of service. Every

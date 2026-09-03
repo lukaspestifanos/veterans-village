@@ -2,7 +2,8 @@ import type { CSSProperties, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon, type IconName } from './Icon'
 import { Pill } from './Pill'
-import { VideoPlate } from './VideoPlate'
+import { Plate } from './Plate'
+import { Reveal } from './Reveal'
 import { services } from '../data/services'
 import { site, stats, values } from '../data/site'
 
@@ -17,15 +18,15 @@ export function Rise({ delay = 0, as: Tag = 'div', className = '', children }: {
 
 export function PageHead({ kicker, title, lead, poster, children }: { kicker: string; title: string; lead?: string; poster?: string; children?: ReactNode }) {
   return (
-    <section className="page-head">
-      {poster && <VideoPlate poster={poster} position="50% 45%" />}
+    <section className={`page-head${poster ? ' has-photo' : ''}`}>
+      {poster && <Plate src={poster} position="50% 45%" scrim={0.55} />}
       <div className="wrap">
-        <Rise>
-          <span className="kicker">{kicker}</span>
+        <Reveal>
+          <p className={`eyebrow${poster ? ' light' : ''}`}>{kicker}</p>
           <h1>{title}</h1>
           {lead && <p className="lead">{lead}</p>}
           {children}
-        </Rise>
+        </Reveal>
       </div>
     </section>
   )
@@ -38,12 +39,12 @@ export function Paths() {
     { to: '/partners', icon: 'hands', title: 'I want to partner or fund', text: 'For grantors, municipal partners, nonprofits, and donors. Governance, portfolio, and how to work with us.', go: 'Partner with us', tone: 'partner' },
   ]
   return (
-    <section className="paths" aria-label="How can we help you today">
+    <section className="paths-sec" aria-label="How can we help you today">
       <div className="wrap">
-        <div className="grid">
+        <div className="paths-grid">
           {items.map((it, i) => (
-            <Rise key={it.to} delay={0.15 + i * 0.07}>
-              <Link className={`path ${it.tone}`} to={it.to}>
+            <Reveal key={it.to} delay={i * 70}>
+              <Link className={`path-card ${it.tone}`} to={it.to}>
                 <Icon name={it.icon} className="ic" />
                 <h3>{it.title}</h3>
                 <p>{it.text}</p>
@@ -51,7 +52,7 @@ export function Paths() {
                   {it.go} <Icon name="arrow" />
                 </span>
               </Link>
-            </Rise>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -26,7 +26,7 @@ export function Help() {
       </section>
       <section className="services">
         <div className="wrap">
-          <span className="kicker">What we can help with</span>
+          <p className="eyebrow">What we can help with</p>
           <h2>Housing first, then everything that keeps it.</h2>
           <ServicesGrid />
         </div>
