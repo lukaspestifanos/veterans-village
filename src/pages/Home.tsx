@@ -3,11 +3,11 @@ import { Icon } from '../components/Icon'
 import { Pill } from '../components/Pill'
 import { Plate } from '../components/Plate'
 import { Reveal } from '../components/Reveal'
-import { CallBox, ServicesGrid, Values } from '../components/blocks'
+import { CallBox, ServicesGrid, TrustStrip, Values } from '../components/blocks'
 import { PropertyCard } from '../components/PropertyCard'
 import { media } from '../data/media'
 import { properties } from '../data/properties'
-import { site, stats } from '../data/site'
+import { site } from '../data/site'
 
 const steps = [
   { n: '01', title: 'Call, or send a message', text: `Call ${site.phone} during office hours or use the form on this site. Case workers and family can reach out on someone's behalf.` },
@@ -75,19 +75,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* Numbers on navy */}
-      <section className="numbers">
-        <div className="wrap">
-          <ul>
-            {stats.map((s, i) => (
-              <Reveal as="li" key={s.label} delay={i * 70}>
-                <b>{s.value}</b>
-                <span>{s.label}</span>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <TrustStrip />
 
       {/* Communities rail */}
       <section className="communities">

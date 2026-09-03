@@ -62,14 +62,14 @@ export function Paths() {
 
 export function TrustStrip() {
   return (
-    <section className="trust" aria-label="Veterans Village at a glance">
+    <section className="numbers" aria-label="Veterans Village at a glance">
       <div className="wrap">
         <ul>
-          {stats.map((s) => (
-            <li key={s.label}>
+          {stats.map((s, i) => (
+            <Reveal as="li" key={s.label} delay={i * 70}>
               <b>{s.value}</b>
               <span>{s.label}</span>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

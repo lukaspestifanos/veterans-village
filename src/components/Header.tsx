@@ -51,7 +51,7 @@ export function Header() {
   }, [open])
 
   return (
-    <header className={`site${open ? ' is-open' : ''}${overPhoto && !scrolled && !open ? ' over' : ''}`}>
+    <header className={`site${open ? ' is-open' : ''}${overPhoto ? ' photo' : ''}${overPhoto && !scrolled && !open ? ' over' : ''}`}>
       <div className="wrap bar">
         <Link className="logo" to="/" aria-label="Veterans Village home">
           <Mark className="mark" />

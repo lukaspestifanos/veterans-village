@@ -3,6 +3,8 @@ export interface Member {
   role: string
   veteran?: string
   bio: string
+  /** Path under public/images/board/. The live site has no portraits; add them here when the client sends headshots. */
+  photo?: string
 }
 
 export const board: Member[] = [
