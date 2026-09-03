@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Icon, Mark } from './Icon'
 import { Pill } from './Pill'
@@ -85,7 +86,8 @@ export function Header() {
         </button>
       </div>
 
-      <nav id="menu" className="menu" aria-label="Mobile" aria-hidden={!open}>
+      {createPortal(
+      <nav id="menu" className={`menu${open ? ' open' : ''}`} aria-label="Mobile" aria-hidden={!open}>
         <div className="menu-inner">
           <p className="menu-eyebrow" style={{ '--d': '0.06s' } as React.CSSProperties}>Menu</p>
           <ul className="menu-list">
@@ -106,6 +108,7 @@ export function Header() {
           </div>
         </div>
       </nav>
+      , document.body)}
     </header>
   )
 }

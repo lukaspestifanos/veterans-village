@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Icon, Mark } from './Icon'
 import { Pill } from './Pill'
 import { site } from '../data/site'
@@ -57,9 +58,37 @@ export function Footer() {
   )
 }
 
+/**
+ * Call / Get help bar for phones. It appears once the reader has scrolled past
+ * the opening screen and steps away again when the footer, which carries the
+ * same two actions, is in view. Never on the contact page.
+ */
 export function MobileBar() {
+  const { pathname } = useLocation()
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    let raf = 0
+    const update = () => {
+      raf = 0
+      const footer = document.querySelector('footer.site')
+      const footerNear = footer ? footer.getBoundingClientRect().top < window.innerHeight * 0.9 : false
+      setShow(window.scrollY > window.innerHeight * 0.7 && !footerNear)
+    }
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [pathname])
+  if (pathname === '/contact') return null
   return (
-    <div className="mbar" aria-label="Quick actions">
+    <div className={`mbar${show ? ' show' : ''}`} aria-label="Quick actions" aria-hidden={!show}>
       <a className="btn btn-outline" href={site.phoneHref}>
         <Icon name="phone" />
         Call us
