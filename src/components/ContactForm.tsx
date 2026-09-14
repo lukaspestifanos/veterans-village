@@ -33,7 +33,7 @@ async function submitContact(payload: ContactPayload): Promise<void> {
   await new Promise((r) => setTimeout(r, 600))
 }
 
-/** Deep links prefill the form: /contact?topic=property&community=Quinn%20by%20Vintage */
+/** Deep links prefill the form: /contact?topic=property&community=Two10%20by%20Vintage */
 export function ContactForm() {
   const [params] = useSearchParams()
   const [topic, setTopic] = useState(params.get('topic') ?? 'housing')

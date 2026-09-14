@@ -1,9 +1,8 @@
 export const site = {
   name: 'Veterans Village',
   tagline: 'Housing and support since 2016',
-  phone: '(253) 257-7804',
-  phoneHref: 'tel:+12532577804',
-  email: 'Info@v-village.com',
+  phone: '(833) 783-8468',
+  phoneHref: 'tel:+18337838468',
   address: ['419 208th St E', 'Spanaway, WA 98387'],
   mapHref:
     'https://www.google.com/maps/place/208th+St+E,+Spanaway,+WA+98387/@47.0680788,-122.4323878,17z',
@@ -12,7 +11,7 @@ export const site = {
   crisis: { label: 'Veterans Crisis Line', action: 'dial 988, then press 1', href: 'tel:988' },
   founded: 2016,
   mission:
-    'Our mission is to ensure that our veterans and seniors are supported and respected while they transition into their new homes, through affordable housing, behavioral health counseling, and other necessary services.',
+    'Our mission is to ensure that our veterans and seniors are supported and respected while they transition into their new homes, through affordable housing, coordination of behavioral health services, and other necessary services.',
 }
 
 export const nav = [
@@ -33,7 +32,7 @@ export const values = [
 
 export const stats = [
   { value: '2016', label: 'Founded by veterans' },
-  { value: '7', label: 'Communities in Washington' },
+  { value: '9', label: 'Communities in Washington' },
   { value: '1,370', label: 'Affordable units developed or acquired' },
   { value: '2', label: 'States: Washington and Alabama' },
   { value: '501(c)(3)', label: 'Registered nonprofit' },

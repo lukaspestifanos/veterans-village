@@ -1,6 +1,7 @@
 import { ContactForm } from '../components/ContactForm'
 import { ContactInfo, PageHead } from '../components/blocks'
 import { media } from '../data/media'
+import { site } from '../data/site'
 
 export function Contact() {
   return (
@@ -23,6 +24,6 @@ export function Contact() {
 
 export function NotFound() {
   return (
-    <PageHead kicker="Page not found" title="That page does not exist." lead="Use the menu above, or call (253) 257-7804 and we will point you the right way." />
+    <PageHead kicker="Page not found" title="That page does not exist." lead={`Use the menu above, or call ${site.phone} and we will point you the right way.`} />
   )
 }

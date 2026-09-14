@@ -34,7 +34,7 @@ export function PageHead({ kicker, title, lead, poster, children }: { kicker: st
 
 export function Paths() {
   const items: { to: string; icon: IconName; title: string; text: string; go: string; tone: string }[] = [
-    { to: '/help', icon: 'home', title: 'I need housing or help', text: 'For veterans and seniors looking for an affordable home, counseling, food, medical care, or job training.', go: 'Start here', tone: 'help' },
+    { to: '/help', icon: 'home', title: 'I need housing or help', text: 'For veterans and seniors looking for an affordable home, behavioral health services, food, medical care, or job training.', go: 'Start here', tone: 'help' },
     { to: '/contact?topic=referral', icon: 'people', title: "I'm referring someone", text: 'For case workers, VA staff, family members, and partner agencies helping a veteran or senior find a home.', go: 'Make a referral', tone: '' },
     { to: '/partners', icon: 'hands', title: 'I want to partner or fund', text: 'For grantors, municipal partners, nonprofits, and donors. Governance, portfolio, and how to work with us.', go: 'Partner with us', tone: 'partner' },
   ]
@@ -85,7 +85,7 @@ export function CallBox() {
         {site.phone}
       </a>
       <p>
-        {site.hours} Pacific. Email <a href={`mailto:${site.email}`}>{site.email}</a> any time.
+        {site.hours} Pacific.
       </p>
       <div className="row">
         <Pill to="/contact?topic=housing">Send a message</Pill>
@@ -102,7 +102,7 @@ export function CallBox() {
 export function Steps() {
   const steps = [
     { title: 'Call or send us a message', text: `Call ${site.phone} during office hours or use the short form on the contact page. Tell us a little about your situation.` },
-    { title: 'We talk through what you need', text: 'A team member will go over housing options, eligibility, and the services that fit, whether that is counseling, food assistance, medical care, or job training.' },
+    { title: 'We talk through what you need', text: 'A team member will go over housing options, eligibility, and the services that fit, whether that is behavioral health coordination, food assistance, medical care, or job training.' },
     { title: 'We connect you to the right place', text: 'We match you with a community that has availability, or with a trusted partner organization if we cannot help directly.' },
   ]
   return (
@@ -155,7 +155,7 @@ export function ContactInfo() {
       <h3>{site.name}</h3>
       <dl>
         <div>
-          <dt>Visit</dt>
+          <dt>Address</dt>
           <dd>
             <a href={site.mapHref} target="_blank" rel="noopener">
               {site.address.join(', ')}
@@ -165,10 +165,6 @@ export function ContactInfo() {
         <div>
           <dt>Call</dt>
           <dd><a href={site.phoneHref}>{site.phone}</a></dd>
-        </div>
-        <div>
-          <dt>Email</dt>
-          <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
         </div>
         <div>
           <dt>Office hours</dt>

@@ -16,9 +16,9 @@ const columns = [
   {
     title: 'Portfolio',
     items: [
-      'Family apartments: Quinn by Vintage, Two10 by Vintage, Silver Creek',
-      'Senior 55+: Vintage at Marine View, Vintage at Silverdale',
-      'Under construction: Lake Stevens, Village at 47th',
+      'Family apartments: Two10 by Vintage, Silver Creek, Kneeland Park, Kamiakin, Meadow Park, Kent Manor',
+      'Senior 55+: Vintage at Marine View',
+      'Under construction: Vintage at Lake Stevens, Vintage at the Overlook',
       'Under contract: Camp Chula Vista, Pell City, Alabama',
       'About 1,370 affordable units developed or acquired in Washington',
     ],
@@ -68,7 +68,6 @@ export function Partners() {
           <div className="pcol contact-strip">
             <h3>Reach the team directly</h3>
             <ul>
-              <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
               <li><a href={site.phoneHref}>{site.phone}</a></li>
               <li>{site.hours}</li>
             </ul>

@@ -20,7 +20,7 @@ export function Footer() {
             <Mark light />
             {site.name}
           </div>
-          <p>A 501(c)(3) nonprofit providing affordable housing and behavioral health counseling for veterans and senior citizens in Washington and Alabama.</p>
+          <p>A 501(c)(3) nonprofit providing affordable housing and coordinating behavioral health services for veterans and senior citizens in Washington and Alabama.</p>
         </div>
         <div>
           <h4>Get help</h4>
@@ -45,7 +45,6 @@ export function Footer() {
           <ul>
             <li>{site.address[0]}<br />{site.address[1]}</li>
             <li><a href={site.phoneHref}>{site.phone}</a></li>
-            <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
             <li>{site.hoursShort}</li>
           </ul>
         </div>

@@ -29,7 +29,7 @@ export function Home() {
             <h1>Affordable housing and support for veterans and seniors.</h1>
           </Reveal>
           <Reveal delay={120}>
-            <p className="hero-lead">Seven communities in Washington. Counseling, food, medical care coordination, and job training that come with the keys. Alabama next.</p>
+            <p className="hero-lead">Nine communities in Washington. Behavioral health coordination, food, medical care coordination, and job training that come with the keys. Alabama next.</p>
             <div className="ctas">
               <Pill to="/help" large>I need housing or support</Pill>
               <Pill to="/housing" variant="ghost" large>See our communities</Pill>
@@ -69,7 +69,7 @@ export function Home() {
           </Reveal>
           <Reveal delay={80}>
             <h2>Coming home should not mean starting over.</h2>
-            <p className="big">Too many veterans and seniors are one rent increase or one health setback away from losing a stable place to live. In 2016 a group of veterans started Veterans Village to change that: safe, affordable homes, and the support to keep them.</p>
+            <p className="big">Too many veterans and seniors are one rent increase or one health setback away from losing a stable place to live. In 2016 two veterans started Veterans Village to change that: safe, affordable homes, and the support to keep them.</p>
             <Link className="textlink" to="/about">Our story and board <Icon name="arrow" /></Link>
           </Reveal>
         </div>
@@ -85,7 +85,7 @@ export function Home() {
             <h2>Where you could live</h2>
           </Reveal>
           <Reveal delay={100}>
-            <p className="lead">Family apartments in Shoreline and Pasco. Senior 55+ communities in Everett and Silverdale. Two more under construction, and a first Alabama property under contract.</p>
+            <p className="lead">Family apartments in Shoreline, Pasco, Shelton, and Kennewick. A senior 55+ community in Everett. Two more under construction, and a first Alabama property under contract.</p>
             <Pill to="/housing" variant="outline">Find a community</Pill>
           </Reveal>
         </div>
@@ -98,7 +98,7 @@ export function Home() {
             ))}
             <li className="rail-more">
               <Link to="/housing?type=soon">
-                <b>Lake Stevens, Village at 47th, Camp Chula Vista</b>
+                <b>Vintage at Lake Stevens, Vintage at the Overlook, Camp Chula Vista</b>
                 <span>Under construction and under contract <Icon name="arrow" /></span>
               </Link>
             </li>
@@ -137,7 +137,7 @@ export function Home() {
               <h2>Support that lasts.</h2>
             </Reveal>
             <Reveal delay={100}>
-              <p className="lead">Housing is where it starts. These services are what keep it. We deliver them directly and through trusted local partners in every market we serve.</p>
+              <p className="lead">Housing is where it starts. These services are what keep it. We deliver some directly and coordinate the rest, including behavioral health services, through trusted local partners in every market we serve.</p>
             </Reveal>
           </div>
           <ServicesGrid />

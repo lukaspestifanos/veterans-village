@@ -15,9 +15,9 @@ export const board: Member[] = [
     bio: 'Founder and Executive Director. A disabled U.S. Army veteran with over 30 years of executive leadership, construction oversight, and government operations experience with the U.S. Department of Defense. He retired as Senior Director of Occupational Safety and Health for Joint Base Lewis-McChord, managing infrastructure projects across the U.S., South Korea, and Afghanistan. Under his leadership Veterans Village has developed and acquired about 1,370 affordable housing units in Washington State.',
   },
   {
-    name: 'Tawanda Hill, RN, MSN',
+    name: 'TaWanda Hill',
     role: 'President',
-    bio: "A retired healthcare professional, educator, and organizational leader with more than 30 years of nursing experience across clinical care, administration, case management, and research, including managing a nationwide study for the Department of Obstetrics and Gynecology at UAB. Her background in compliance monitoring and quality assurance guides the organization's operations.",
+    bio: "A retired healthcare professional, educator, and organizational leader with more than 30 years of nursing experience across clinical care, administration, case management, and research, including managing a nationwide study for the Department of Obstetrics and Gynecology at the University of Alabama at Birmingham. Her background in compliance monitoring and quality assurance guides the organization's operations.",
   },
   {
     name: 'Sherry Le',
